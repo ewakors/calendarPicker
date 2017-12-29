@@ -14,6 +14,7 @@
 		4565C05A1FF634FA00C4C2E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4565C0581FF634FA00C4C2E3 /* LaunchScreen.storyboard */; };
 		4565C0651FF634FB00C4C2E3 /* calendarBedBookingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C0641FF634FB00C4C2E3 /* calendarBedBookingTests.swift */; };
 		4565C0701FF634FB00C4C2E3 /* calendarBedBookingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C06F1FF634FB00C4C2E3 /* calendarBedBookingUITests.swift */; };
+		4565C0831FF6361400C4C2E3 /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4565C06B1FF634FB00C4C2E3 /* calendarBedBookingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendarBedBookingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4565C06F1FF634FB00C4C2E3 /* calendarBedBookingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarBedBookingUITests.swift; sourceTree = "<group>"; };
 		4565C0711FF634FB00C4C2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,10 @@
 		4565C04E1FF634FA00C4C2E3 /* calendarBedBooking */ = {
 			isa = PBXGroup;
 			children = (
-				4565C04F1FF634FA00C4C2E3 /* AppDelegate.swift */,
-				4565C0511FF634FA00C4C2E3 /* ViewController.swift */,
-				4565C0531FF634FA00C4C2E3 /* Main.storyboard */,
-				4565C0561FF634FA00C4C2E3 /* Assets.xcassets */,
-				4565C0581FF634FA00C4C2E3 /* LaunchScreen.storyboard */,
 				4565C05B1FF634FA00C4C2E3 /* Info.plist */,
+				4565C0811FF635EC00C4C2E3 /* support */,
+				4565C0511FF634FA00C4C2E3 /* ViewController.swift */,
+				4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */,
 			);
 			path = calendarBedBooking;
 			sourceTree = "<group>";
@@ -123,6 +123,17 @@
 				4565C0711FF634FB00C4C2E3 /* Info.plist */,
 			);
 			path = calendarBedBookingUITests;
+			sourceTree = "<group>";
+		};
+		4565C0811FF635EC00C4C2E3 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				4565C0581FF634FA00C4C2E3 /* LaunchScreen.storyboard */,
+				4565C0561FF634FA00C4C2E3 /* Assets.xcassets */,
+				4565C0531FF634FA00C4C2E3 /* Main.storyboard */,
+				4565C04F1FF634FA00C4C2E3 /* AppDelegate.swift */,
+			);
+			path = support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4565C0831FF6361400C4C2E3 /* CalendarPickerView.swift in Sources */,
 				4565C0521FF634FA00C4C2E3 /* ViewController.swift in Sources */,
 				4565C0501FF634FA00C4C2E3 /* AppDelegate.swift in Sources */,
 			);
