@@ -19,6 +19,8 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
     var years: [Int]!
     var daysCount: Int!
     var yearsCount: Int!
+    let minYear: Int = 2008
+    var startDate: String?
     let calendar = Calendar(identifier: .gregorian)
     
     var weekDayIndex: Int = 0 {
@@ -50,13 +52,13 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonSetup()
-        self.selectedTodayDate(weekDay: weekDayIndex, day: dayIndex, month: monthIndex, year: yearIndex)
+        self.selectedStartDate(weekDay: weekDayIndex, day: dayIndex, month: monthIndex, year: yearIndex)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonSetup()
-        self.selectedTodayDate(weekDay: weekDayIndex, day: dayIndex, month: monthIndex, year: yearIndex)
+        self.selectedStartDate(weekDay: weekDayIndex, day: dayIndex, month: monthIndex, year: yearIndex)
     }
     
     func commonSetup() {
@@ -81,30 +83,33 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         self.dataSource = self
     }
     
-    func selectedTodayDate(weekDay: Int, day: Int, month: Int, year: Int) {
-        var selectedWeekDay = weekDay
+    func selectedStartDate(weekDay: Int, day: Int, month: Int, year: Int) {
+        var selectedWeekDay = 5
         selectedWeekDay = calendar.component(.weekday, from: Date())
-        self.selectRow(selectedWeekDay - 1, inComponent: 0, animated: false)
+        let weekDayRow = selectedWeekDay - 1
+        self.selectRow(weekDayRow, inComponent: 0, animated: false)
         
         var selectedDay = day
         selectedDay = calendar.component(.day, from: Date())
         self.selectRow(selectedDay - 1, inComponent: 1, animated: false)
         
-        var selectedMonth = month
+        var selectedMonth = 6
         selectedMonth = calendar.component(.month, from: Date())
-        self.selectRow(selectedMonth - 1, inComponent: 2, animated: false)
-        
+        let monthRow = selectedMonth - 1
+        self.selectRow(monthRow, inComponent: 2, animated: false)
+
         var selectedYear = year
         selectedYear = calendar.component(.year, from: Date())
         self.selectRow(selectedYear, inComponent: 3, animated: false)
+
+        startDate = String(format: "%@ %d %@ %d", weekDays[weekDayRow], selectedDay, months[monthRow], selectedYear)
     }
     
-    func selectedDate(weekDay: Int, day: Int, month: Int, year: Int) {
+    func selectedEndDate(weekDay: Int, day: Int, month: Int, year: Int) {
         let components = DateComponents(timeZone: TimeZone.init(abbreviation: "UTC")!, year: year, month: (month) % 13, day: day, hour: 0, minute: 0)
         let newDate = calendar.date(from: components)
         
         if let date = newDate {
-            print("date: \(date)")
             let newCompnent = calendar.dateComponents([.year, .month, .day, .weekday], from: date)
             self.monthIndex = (newCompnent.month ?? 0 ) - 1
             self.yearIndex = ((years.index(of: newCompnent.year ?? 0)) ?? 0)
@@ -113,6 +118,13 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         }
         onDateSelected?(weekDay, day, month, year)
     }
+    
+    func displayStartDate() -> String {
+        let startDate = self.startDate
+        
+        return startDate ?? ""
+    }
+    
     // Mark: UIPicker Delegate / Data Source
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -153,7 +165,7 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         let weekDay = self.selectedRow(inComponent: 0)
         var day = self.selectedRow(inComponent: 1) 
         let month = self.selectedRow(inComponent: 2) + 1
-        let year = years[self.selectedRow(inComponent: 3)]
+        var year = years[self.selectedRow(inComponent: 3)]
         
         let dateComponents = DateComponents(timeZone: TimeZone.init(abbreviation: "UTC")!, year: year, month: (month) % 13, day: 1, hour: 0, minute: 0)
         var calendar = Calendar.current
@@ -162,13 +174,17 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         let range = calendar.range(of: .day, in: .month, for: date!)
         daysCount = range?.count ?? 0
         
+        if year <= minYear {
+            year = minYear
+        }
+        
         if days[day] >= daysCount {
             day = daysCount
-            selectedDate(weekDay: weekDay, day: day, month: month, year: year)
+            selectedEndDate(weekDay: weekDay, day: day, month: month, year: year)
             
         } else {
             let newDay = day + 1
-            selectedDate(weekDay: weekDay, day: newDay, month: month, year: year)
+            selectedEndDate(weekDay: weekDay, day: newDay, month: month, year: year)
         }
 
         pickerView.reloadAllComponents()
