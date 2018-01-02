@@ -18,26 +18,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="calendar picker" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-Ag-gJs">
-                                <rect key="frame" x="51" y="158" width="121" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-Ag-gJs">
+                                <rect key="frame" x="16" y="158" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bdp-aj-Vbl"/>
+                                    <constraint firstAttribute="width" constant="150" id="kbr-Lm-Qiu"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vH-Wz-W7Z">
-                                <rect key="frame" x="66" y="119" width="81" height="21"/>
+                                <rect key="frame" x="16" y="119" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVx-ix-U3H">
-                                <rect key="frame" x="227" y="119" width="84" height="21"/>
+                                <rect key="frame" x="203" y="119" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="calendar picker" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-LB-zym">
-                                <rect key="frame" x="227" y="158" width="121" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-LB-zym">
+                                <rect key="frame" x="211" y="158" width="144" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="j3b-gU-iFZ"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -45,23 +52,21 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jz1-Ag-gJs" firstAttribute="top" secondItem="5vH-Wz-W7Z" secondAttribute="bottom" constant="18" id="4vo-8W-mE2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVx-ix-U3H" secondAttribute="trailing" constant="64" id="DWM-ZU-4La"/>
-                            <constraint firstItem="sDC-LB-zym" firstAttribute="leading" secondItem="jz1-Ag-gJs" secondAttribute="trailing" constant="55" id="IuB-S2-E5k"/>
-                            <constraint firstItem="5vH-Wz-W7Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="KnN-py-Zfn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jz1-Ag-gJs" secondAttribute="bottom" constant="487" id="Q11-Bs-fvB"/>
-                            <constraint firstItem="sDC-LB-zym" firstAttribute="leading" secondItem="jz1-Ag-gJs" secondAttribute="trailing" constant="55" id="TQy-IO-eZz"/>
-                            <constraint firstItem="jz1-Ag-gJs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="eeQ-sb-ZPI"/>
-                            <constraint firstItem="SVx-ix-U3H" firstAttribute="leading" secondItem="sDC-LB-zym" secondAttribute="leading" id="g7R-xb-vnE"/>
-                            <constraint firstItem="sDC-LB-zym" firstAttribute="top" secondItem="SVx-ix-U3H" secondAttribute="bottom" constant="18" id="j9Q-sm-UJf"/>
-                            <constraint firstItem="SVx-ix-U3H" firstAttribute="leading" secondItem="5vH-Wz-W7Z" secondAttribute="trailing" constant="80" id="wBp-iX-VTi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sDC-LB-zym" secondAttribute="trailing" constant="27" id="wle-nn-cCA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sDC-LB-zym" secondAttribute="bottom" constant="487" id="y3c-8e-AAz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVx-ix-U3H" secondAttribute="trailing" constant="99.5" id="AtR-7D-Gy9"/>
+                            <constraint firstItem="5vH-Wz-W7Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xlv-Fi-uRC"/>
+                            <constraint firstItem="SVx-ix-U3H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="99" id="eCf-8J-89e"/>
+                            <constraint firstItem="jz1-Ag-gJs" firstAttribute="top" secondItem="5vH-Wz-W7Z" secondAttribute="bottom" constant="18" id="goP-Ys-NB6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sDC-LB-zym" secondAttribute="trailing" constant="20" id="n3o-kG-t0S"/>
+                            <constraint firstItem="5vH-Wz-W7Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="99" id="ohd-qh-axb"/>
+                            <constraint firstItem="SVx-ix-U3H" firstAttribute="leading" secondItem="5vH-Wz-W7Z" secondAttribute="trailing" constant="106" id="oht-HS-Xjp"/>
+                            <constraint firstItem="sDC-LB-zym" firstAttribute="top" secondItem="SVx-ix-U3H" secondAttribute="bottom" constant="18" id="snc-Kq-TGz"/>
+                            <constraint firstItem="jz1-Ag-gJs" firstAttribute="leading" secondItem="5vH-Wz-W7Z" secondAttribute="leading" id="tdX-YA-aSc"/>
+                            <constraint firstItem="sDC-LB-zym" firstAttribute="leading" secondItem="jz1-Ag-gJs" secondAttribute="trailing" constant="45" id="xqO-Uz-OnZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="endDateTextField" destination="jz1-Ag-gJs" id="D91-9m-Rfr"/>
+                        <outlet property="endDateTextField" destination="sDC-LB-zym" id="9K3-O1-JMV"/>
                         <outlet property="textField" destination="jz1-Ag-gJs" id="FhY-dS-Dkc"/>
                     </connections>
                 </viewController>
