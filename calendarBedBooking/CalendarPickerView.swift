@@ -24,6 +24,7 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
     var dateString: String = ""
     let calendar = Calendar(identifier: .gregorian)
     var selectedStartDate: Bool = true
+    var startYear: Int!
     
     var weekDayIndex: Int = 0 {
         didSet {
@@ -113,6 +114,8 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
             self.selectRow(weekDayRow + 1, inComponent: 0, animated: false)
             self.selectRow(selectedDay, inComponent: 1, animated: false)
         }
+        
+        startYear = selectedYear
     }
     
     func selectedDate(weekDay: Int, day: Int, month: Int, year: Int) {
@@ -129,6 +132,8 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
             dateString = String(format: "%@ %d %@ %d", weekDays[weekDayIndex], day, months[monthIndex], year)
         }
         onDateSelected?(weekDay, day, month, year)
+        
+        startYear = year
     }
     
     func displayStartDate() -> String {
@@ -195,6 +200,13 @@ class CalendarPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         let date = calendar.date(from: dateComponents)
         let range = calendar.range(of: .day, in: .month, for: date!)
         daysCount = range?.count ?? 0
+        
+        if !selectedStartDate {
+            if year <= startYear {
+                year = startYear
+                selectedDate(weekDay: weekDay, day: day, month: month, year: startYear)
+            }
+        }
         
         if year <= minYear {
             year = minYear
