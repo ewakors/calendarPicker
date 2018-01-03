@@ -22,30 +22,29 @@ class ViewController: UIViewController {
         textField.text = datePicker.displayStartDate()
         textField.addTarget(self, action: #selector(selectedStartDatePicker), for: .allEvents)
         
-        endDateTextField.addTarget(self, action: #selector(selectedEndDatePicker), for: .allEvents)
         endDateTextField.text = "- -"
+        endDateTextField.addTarget(self, action: #selector(selectedEndDatePicker), for: .allEvents)
         
         textField.inputView = datePicker
         endDateTextField.inputView = endDatePicker
     }
     
     @objc func selectedEndDatePicker() {
-        print("end date picker")
-        self.endDatePicker.selectedStartDate(startDateSelected: false)
-        endDatePicker.onDateSelected = { (weekDay: Int, day: Int, month: Int, year: Int) in
-            let string = String(format: "%d/%d/%d", day , month, year)
-            self.endDateTextField.text = self.endDatePicker.displayDate()
-            NSLog(string)
-        }
+        selectedDatePicker(datePicker: endDatePicker, selectedTextField: endDateTextField, startDateSelected: false)
     }
     
     @objc func selectedStartDatePicker() {
-        self.datePicker.selectedStartDate(startDateSelected: true)
+        selectedDatePicker(datePicker: datePicker, selectedTextField: textField, startDateSelected: true)
+    }
+    
+    func selectedDatePicker(datePicker: CalendarPickerView, selectedTextField: UITextField!, startDateSelected: Bool) {
+        datePicker.selectedStartDate(startDateSelected: startDateSelected)
         datePicker.onDateSelected = { (weekDay: Int, day: Int, month: Int, year: Int) in
-            let string = String(format: "%d/%d/%d", day , month, year)
-            self.textField.text = self.datePicker.displayDate()
-            NSLog(string)
+            selectedTextField.text = datePicker.displayDate()
+            if startDateSelected {
+                datePicker.startDay = day
+            }
         }
-    }    
+    }
 }
 
