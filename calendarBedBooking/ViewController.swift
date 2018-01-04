@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var startMonth: Int = 0
     var startYear: Int = 0
     var startWeekday: Int = 0
+    var newStartDate: Date? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
         startMonth = datePicker.startMonth
         startYear = datePicker.startYear
         
-        startDate = datePicker.createStartDate(startDay: startDay, startMonth: startMonth, startYear: startYear)
+        startDate = datePicker.createStartDate(startDay: startDay + 1, startMonth: startMonth, startYear: startYear)
         endDate = datePicker.createStartDate(startDay: startDay + 1, startMonth: startMonth, startYear: startYear)
         endDatePicker.selectedDate(weekDay: startWeekday, day: startDay + 1, month: startMonth, year: startYear, endDateIsChanged: false)
         
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
     
     @objc func selectedEndDatePicker() {
         
-        if self.startDate?.compare(self.endDate!) == .orderedDescending || self.startDate! == self.endDate!{
+        if self.newStartDate?.compare(self.endDate!) == .orderedDescending || self.newStartDate! == self.endDate!{
             self.endDatePicker.selectedDate(weekDay: self.startWeekday, day: self.startDay, month: self.startMonth, year: self.startYear, endDateIsChanged: false)
             self.endDate = self.endDatePicker.createEndDate(endDay: self.startDay + 1, endMonth: self.startMonth, endYear: self.startYear)
         }
@@ -56,14 +57,12 @@ class ViewController: UIViewController {
             self.endDateTextField.text = self.endDatePicker.displayDate()
             self.endDate = self.endDatePicker.createEndDate(endDay: day + 1, endMonth: month, endYear: year)
 
-            if self.startDate?.compare(self.endDate!) == .orderedDescending || self.startDate! == self.endDate! {
+            if self.newStartDate?.compare(self.endDate!) == .orderedDescending || self.newStartDate! == self.endDate! {
                 self.endDateTextField.text = self.endDatePicker.displayDate()
                 self.endDatePicker.selectedDate(weekDay: self.startWeekday, day: self.startDay + 1, month: self.startMonth, year: self.startYear, endDateIsChanged: true)
                 self.endDate = self.endDatePicker.createEndDate(endDay: self.startDay + 1, endMonth: self.startMonth, endYear: self.startYear)
             }
-
             print("end date: \(String(describing: self.endDate))")
-     
         }
     }
     
@@ -71,15 +70,21 @@ class ViewController: UIViewController {
 
         datePicker.onDateSelected = { (weekDay: Int, day: Int, month: Int, year: Int) in
             self.textField.text = self.datePicker.displayDate()
-            self.startDate = self.datePicker.createStartDate(startDay: day + 1, startMonth: month, startYear: year)
+            self.newStartDate = self.datePicker.createStartDate(startDay: day + 1, startMonth: month, startYear: year)
+            print("new start date: \(String(describing: self.newStartDate))")
+            
+            if self.newStartDate?.compare(self.startDate!) != .orderedDescending {
+                self.endDatePicker.selectedDate(weekDay: weekDay, day: day + 1, month: month, year: year, endDateIsChanged: false)
+            }
+            
             self.startWeekday = weekDay
             self.startDay = day + 1
             self.startMonth = month
             self.startYear = year
-            print("\(String(describing: self.startDate))")
+            print("start date: \(String(describing: self.startDate))")
             
-            if self.startDate?.compare(self.endDate!) == .orderedDescending || self.startDate! == self.endDate!{
-                self.endDatePicker.selectedDate(weekDay: weekDay, day: self.startDay, month: self.startMonth, year: self.startYear, endDateIsChanged: false)
+            if self.newStartDate?.compare(self.endDate!) == .orderedDescending || self.startDate! == self.endDate!{
+                self.endDatePicker.selectedDate(weekDay: weekDay, day: day + 1, month: month, year: year, endDateIsChanged: false)
             }
         }
     }
