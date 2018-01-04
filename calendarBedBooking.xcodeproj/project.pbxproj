@@ -15,6 +15,7 @@
 		4565C0651FF634FB00C4C2E3 /* calendarBedBookingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C0641FF634FB00C4C2E3 /* calendarBedBookingTests.swift */; };
 		4565C0701FF634FB00C4C2E3 /* calendarBedBookingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C06F1FF634FB00C4C2E3 /* calendarBedBookingUITests.swift */; };
 		4565C0831FF6361400C4C2E3 /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */; };
+		457C34251FFE102900036957 /* EndDateCalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C34241FFE102900036957 /* EndDateCalendarPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4565C06F1FF634FB00C4C2E3 /* calendarBedBookingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarBedBookingUITests.swift; sourceTree = "<group>"; };
 		4565C0711FF634FB00C4C2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerView.swift; sourceTree = "<group>"; };
+		457C34241FFE102900036957 /* EndDateCalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDateCalendarPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				4565C0811FF635EC00C4C2E3 /* support */,
 				4565C0511FF634FA00C4C2E3 /* ViewController.swift */,
 				4565C0821FF6361400C4C2E3 /* CalendarPickerView.swift */,
+				457C34241FFE102900036957 /* EndDateCalendarPickerView.swift */,
 			);
 			path = calendarBedBooking;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				4565C0831FF6361400C4C2E3 /* CalendarPickerView.swift in Sources */,
 				4565C0521FF634FA00C4C2E3 /* ViewController.swift in Sources */,
+				457C34251FFE102900036957 /* EndDateCalendarPickerView.swift in Sources */,
 				4565C0501FF634FA00C4C2E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

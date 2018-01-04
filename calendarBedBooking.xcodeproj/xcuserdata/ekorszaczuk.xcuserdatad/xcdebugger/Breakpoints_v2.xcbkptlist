@@ -6,16 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "calendarBedBooking/CalendarPickerView.swift"
-            timestampString = "536684739.76717"
+            filePath = "calendarBedBooking/EndDateCalendarPickerView.swift"
+            timestampString = "536763541.005506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "selectedDate(weekDay:day:month:year:endDateIsChanged:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "calendarBedBooking/EndDateCalendarPickerView.swift"
+            timestampString = "536763541.005613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "selectedDate(weekDay:day:month:year:endDateIsChanged:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "calendarBedBooking/CalendarPickerView.swift"
-            timestampString = "536684739.767682"
+            filePath = "calendarBedBooking/ViewController.swift"
+            timestampString = "536763541.005741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "selectedEndDatePicker()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
