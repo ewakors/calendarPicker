@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         startYear = datePicker.startYear
         
         startDate = datePicker.createStartDate(startDay: startDay + 1, startMonth: startMonth, startYear: startYear)
-        endDate = datePicker.createStartDate(startDay: startDay + 1, startMonth: startMonth, startYear: startYear)
+        endDate = datePicker.createStartDate(startDay: startDay + 2, startMonth: startMonth, startYear: startYear)
         endDatePicker.selectedDate(weekDay: startWeekday, day: startDay + 1, month: startMonth, year: startYear, endDateIsChanged: false)
         
         textField.inputView = datePicker
@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
     
     @objc func selectedEndDatePicker() {
+        self.newStartDate = self.startDate
         
         if self.newStartDate?.compare(self.endDate!) == .orderedDescending || self.newStartDate! == self.endDate!{
             self.endDatePicker.selectedDate(weekDay: self.startWeekday, day: self.startDay, month: self.startMonth, year: self.startYear, endDateIsChanged: false)
@@ -58,9 +59,7 @@ class ViewController: UIViewController {
             self.endDate = self.endDatePicker.createEndDate(endDay: day + 1, endMonth: month, endYear: year)
 
             if self.newStartDate?.compare(self.endDate!) == .orderedDescending || self.newStartDate! == self.endDate! {
-                self.endDateTextField.text = self.endDatePicker.displayDate()
-                self.endDatePicker.selectedDate(weekDay: self.startWeekday, day: self.startDay + 1, month: self.startMonth, year: self.startYear, endDateIsChanged: true)
-                self.endDate = self.endDatePicker.createEndDate(endDay: self.startDay + 1, endMonth: self.startMonth, endYear: self.startYear)
+                self.endDatePicker.selectedDate(weekDay: self.startWeekday, day: self.startDay + 2, month: self.startMonth, year: self.startYear, endDateIsChanged: true)
             }
             print("end date: \(String(describing: self.endDate))")
         }
@@ -73,9 +72,9 @@ class ViewController: UIViewController {
             self.newStartDate = self.datePicker.createStartDate(startDay: day + 1, startMonth: month, startYear: year)
             print("new start date: \(String(describing: self.newStartDate))")
             
-            if self.newStartDate?.compare(self.startDate!) != .orderedDescending {
-                self.endDatePicker.selectedDate(weekDay: weekDay, day: day + 1, month: month, year: year, endDateIsChanged: false)
-            }
+//            if self.newStartDate?.compare(self.endDate!) != .orderedDescending {
+//                self.datePicker.selectedDate(weekDay: weekDay, day: day + 1, month: month, year: year)
+//            }
             
             self.startWeekday = weekDay
             self.startDay = day + 1
